@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login — Mini Shop</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gradient-login">
+
+<!-- ===== Navbar ===== -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+      <!-- Dark Mode Toggle -->
+      <button id="theme-toggle" class="btn btn-sm btn-outline-light me-3">🌙 Dark</button>
+
+      <!-- Logo -->
+      <a class="navbar-brand fw-bold" href="#">
+        <i class="fa-solid fa-store primary-color"></i> Mini Shop
+      </a>
+    </div>
+  </nav>
+
+  <!-- Login Section -->
+  <main class="container my-5 fade-in">
+    <section class="bg-white p-5 rounded shadow-lg col-md-6 mx-auto text-center">
+      <h2 class="mb-4 fw-bold text-primary"><i class="fa-solid fa-user-lock me-2"></i>Login to Continue</h2>
+      <form id="loginForm" novalidate>
+        <div class="mb-3 text-start">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" class="form-control" id="username" placeholder="Enter your username" required>
+          <div class="invalid-feedback">Please enter your username.</div>
+        </div>
+
+        <div class="mb-3 text-start">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+          <div class="invalid-feedback">Please enter your password.</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold">
+          <i class="fa-solid fa-right-to-bracket me-2"></i> Login
+        </button>
+
+        <p class="mt-3 text-muted small">Don't have an account? <a href="#" class="text-decoration-none">Sign up</a></p>
+      </form>
+    </section>
+  </main>
+
+  <!-- Beautiful Footer for Login Page -->
+<footer class="login-footer py-4 mt-5">
+  <div class="container text-center">
+    <div class="social-icons mb-3">
+      <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
+      <a href="#" class="me-3"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+    <p class="footer-text mb-1">© 2025 <strong>Mini Shop</strong> — Crafted with 💙 by Shabnam Shams</p>
+    <small class="text-muted">Empowering innovation, one click at a time ✨</small>
+  </div>
+</footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // =============== 🧭 Redirect Control ===============
+    document.addEventListener('DOMContentLoaded', () => {
+      const isLoggedIn = localStorage.getItem('loggedIn');
+      // If user already logged in, go directly to Home
+      if (isLoggedIn) {
+        window.location.href = 'index.html';
+      }
+    });
+
+    // =============== 🔐 Login Logic ===============
+    const loginForm = document.getElementById('loginForm');
+    loginForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      if (username === '' || password === '') {
+        loginForm.classList.add('was-validated');
+        return;
+      }
+
+      if (username === 'admin' && password === '12345') {
+        localStorage.setItem('loggedIn', 'true');
+        localStorage.setItem('username', username);
+        alert(`✅ Welcome, ${username}! Redirecting to Home...`);
+        window.location.href = 'index.html';
+      } else {
+        alert('❌ Invalid username or password!');
+      }
+    });
+  </script>
+</body>
+</html>

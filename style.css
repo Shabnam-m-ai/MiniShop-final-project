@@ -1,0 +1,512 @@
+/* ================================
+   🌸 MINI SHOP — STYLE.CSS
+   Author: Shabnam 💕
+   ================================ */
+
+/* ===== Root Variables ===== */
+:root {
+  --primary: #297a83;      /* Indigo */
+  --secondary: #06b6d4;    /* Cyan */
+  --accent: #10b981;       /* Emerald */
+  --light: #f8fafc;
+  --dark: #1e293b;
+  --gray: #64748b;
+  --gradient-1: linear-gradient(135deg, #4f46e5, #06b6d4);
+  --gradient-2: linear-gradient(135deg, #0ea5e9, #6366f1);
+  --gradient-3: linear-gradient(135deg, #14b8a6, #3b82f6);
+  --radius: 14px;
+}
+
+/* ===== Global ===== */
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: var(--dark);
+  background-color: var(--light);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Backgrounds for different pages */
+.bg-gradient {
+  background: var(--gradient-1);
+  min-height: 100vh;
+}
+
+.bg-gradient-about {
+  background: var(--gradient-2);
+  min-height: 100vh;
+}
+
+.bg-gradient-contact {
+  background: var(--gradient-3);
+  min-height: 100vh;
+}
+
+.bg-gradient-login {
+  background: linear-gradient(135deg, #06b6d4, #6366f1);
+  min-height: 100vh;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  padding: 0.8rem 1rem;
+  transition: all 0.3s ease;
+}
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary) !important;
+}
+.navbar-brand:hover {
+  color: var(--secondary) !important;
+}
+.nav-link {
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.nav-link:hover,
+.nav-link.active {
+  color: var(--secondary) !important;
+}
+
+/* Dark Mode Toggle Button */
+#theme-toggle {
+  background: var(--gradient-1);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 5px 15px;
+  transition: all 0.3s ease;
+}
+#theme-toggle:hover {
+  transform: scale(1.05);
+  background: var(--gradient-2);
+}
+
+/* ===== Hero Carousel ===== */
+.carousel-inner img {
+  object-fit: cover;
+  height: 420px;
+  border-radius: var(--radius);
+}
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 8px;
+  padding: 1rem 2rem;
+}
+
+/* ===== Features ===== */
+.feature-card {
+  transition: all 0.3s ease;
+  border: none;
+  border-radius: var(--radius);
+  background: white;
+}
+.feature-card:hover {
+  transform: translateY(-8px);
+  background: #eef2ff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+.feature-card i {
+  color: var(--primary);
+}
+
+/* ===== Product Cards ===== */
+.product-card {
+  border: none;
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  background: #fff;
+}
+.product-card img {
+  height: 220px;
+  object-fit: cover;
+}
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+.product-card .btn {
+  border-radius: 30px;
+  padding: 8px 20px;
+  font-weight: 500;
+  background: var(--primary);
+  border: none;
+  transition: all 0.3s ease;
+}
+.product-card .btn:hover {
+  background: var(--secondary);
+}
+
+/* ===== Forms ===== */
+form .form-control {
+  border-radius: var(--radius);
+  border: 1px solid #ccc;
+  padding: 10px;
+  transition: all 0.2s ease;
+}
+form .form-control:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 6px rgba(70, 229, 70, 0.3);
+}
+form .btn {
+  border-radius: 30px;
+  padding: 10px 20px;
+  font-weight: 500;
+  background: var(--gradient-1);
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+}
+form .btn:hover {
+  background: var(--gradient-2);
+  transform: scale(1.03);
+}
+
+/* ===== Checkout Cards ===== */
+.list-group-item {
+  border: none;
+  border-bottom: 1px solid #eee;
+  padding: 12px 15px;
+}
+
+/* ===== Footer ===== */
+footer {
+  font-size: 0.9rem;
+  color: #666;
+  background: #ffffff;
+  margin-top: 40px;
+  border-top: 1px solid #eee;
+}
+
+/* ===== Animations ===== */
+.fade-in {
+  animation: fadeIn 1s ease forwards;
+}
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* ===== Buttons ===== */
+.btn-primary {
+  background: var(--gradient-1);
+  border: none;
+}
+.btn-primary:hover {
+  background: var(--gradient-2);
+  transform: scale(1.05);
+}
+.btn-success {
+    background: var(--accent);
+  border: none;
+}
+.btn-success:hover {
+  background: #0f766e;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+  .feature-card, .product-card {
+    margin-bottom: 20px;
+  }
+}
+
+/* ===== Dark Mode Styles — Final Polished Version ===== */
+body.dark-mode {
+  background-color: #0f172a !important; /* dark navy blue */
+  color: #e2e8f0 !important; /* bright readable text */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Navbar */
+.dark-mode .navbar {
+  background-color: #1e293b !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+.dark-mode .navbar-brand,
+.dark-mode .nav-link {
+  color: #f8fafc !important;
+}
+.dark-mode .nav-link:hover {
+  color: #38bdf8 !important;
+}
+
+/* General Cards and Sections */
+.dark-mode .card,
+.dark-mode .feature-card,
+.dark-mode .product-card,
+.dark-mode section,
+.dark-mode form,
+.dark-mode .bg-white {
+  background-color: #1e293b !important;
+  color: #e2e8f0 !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Headings and Paragraphs */
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5 {
+  color: #f8fafc !important;
+}
+.dark-mode p,
+.dark-mode span,
+.dark-mode label,
+.dark-mode small {
+  color: #cbd5e1 !important;
+}
+
+/* Product Card Text */
+.dark-mode .product-card .card-title {
+  color: #e0f2fe !important;
+}
+.dark-mode .product-card .card-text {
+  color: #a5b4fc !important; /* soft purple-blue */
+}
+
+/* Buttons */
+.dark-mode .btn {
+  background: linear-gradient(135deg, #06b6d4, #6366f1) !important;
+  color: #fff !important;
+  border: none;
+}
+.dark-mode .btn:hover {
+  background: linear-gradient(135deg, #10b981, #3b82f6) !important;
+}
+
+/* Inputs and Textareas */
+.dark-mode input,
+.dark-mode textarea {
+  background-color: #334155 !important;
+  color: #f8fafc !important;
+  border: 1px solid #475569 !important;
+}
+.dark-mode input::placeholder,
+.dark-mode textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Blockquote (About page) */
+.dark-mode blockquote {
+  background: #1e293b !important;
+  border-left: 4px solid #38bdf8;
+  color: #e0f2fe !important;
+}
+
+/* Footer */
+.dark-mode footer {
+  background-color: #0f172a !important;
+  color: #427ecb !important;
+  border-top: 1px solid #334155 !important;
+}
+.dark-mode footer p,
+.dark-mode footer span {
+  color: #94a3b8 !important;
+}
+
+/* Links */
+.dark-mode a {
+  color: #60a5fa !important;
+}
+.dark-mode a:hover {
+  color: #38bdf8 !important;
+}
+
+/* Carousel Caption */
+.dark-mode .carousel-caption {
+  background: rgba(15, 23, 42, 0.85) !important;
+  color: #f1f5f9 !important;
+}
+
+/* Feature Cards */
+.dark-mode .feature-card i {
+  color: #38bdf8 !important;
+}
+
+/* Animations (optional) */
+.dark-mode .fade-in {
+  animation: fadeInDark 0.8s ease-in-out;
+}
+@keyframes fadeInDark {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* ===== FOLLOW US SECTION ===== */
+.follow-us-section {
+  background: linear-gradient(135deg, #0ea5e9, #3b82f6, #6366f1);
+  color: #fff;
+  border-radius: 40px 40px 0 0;
+  box-shadow: 0 -6px 25px rgba(0, 0, 0, 0.25);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+}
+
+.follow-us-section::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 70%);
+  animation: floatLight 9s infinite linear;
+}
+
+@keyframes floatLight {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.follow-us-section h2 {
+  font-size: 2rem;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.follow-us-section p {
+  color: #f8fafc;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  font-size: 1rem;
+}
+
+/* Social Icons */
+.social-icons a {
+  color: white;
+  font-size: 1.8rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+  transform: scale(1.25) rotate(10deg);
+  color: #facc15;
+}
+
+/* Different hover colors per platform */
+.social-link.facebook:hover { color: #1877f2; }
+.social-link.twitter:hover { color: #1da1f2; }
+.social-link.instagram:hover { color: #e1306c; }
+.social-link.linkedin:hover { color: #0a66c2; }
+.social-link.github:hover { color: #e2e8f0; }
+
+/* ===== DARK MODE ===== */
+.dark-mode .follow-us-section {
+  background: linear-gradient(135deg, #1e293b, #334155, #475569);
+  box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.5);
+}
+.dark-mode .follow-us-section h2 { color: #e0f2fe; }
+.dark-mode .follow-us-section p { color: #cbd5e1; }
+.dark-mode .social-icons a { color: #e2e8f0; }
+.dark-mode .social-icons a:hover { color: #facc15; }
+
+/* ===== SCROLL ANIMATION ===== */
+.fade-in-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease-out;
+}
+.fade-in-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* ===== FOOTER STYLE ===== */
+.footer {
+  background: var(--footer-bg, #f8f9fa);
+  color: var(--footer-text, #333);
+  border-top: 1px solid rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.footer-text {
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  color: inherit;
+  animation: fadeInUp 1.5s ease;
+}
+
+.footer-text .brand {
+  color: #007bff;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.footer-text .brand:hover {
+  color: #6610f2;
+}
+
+/*  for Dark Mode  */
+body.dark-mode .footer {
+  --footer-bg: #121212;
+  --footer-text: #eaeaea;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/*   intering softly */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ===== Login Page Footer ===== */
+.login-footer {
+  background: linear-gradient(135deg, #ffffff, #f1f4f9);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+.login-footer .social-icons a {
+  color: #007bff;
+  font-size: 1.2rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.login-footer .social-icons a:hover {
+  color: #0056b3;
+  transform: scale(1.2);
+}
+
+.login-footer .footer-text {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.login-footer small {
+  display: block;
+  font-style: italic;
+}
+
+/* 🌙 Dark Mode Support */
+body.dark-mode .login-footer {
+  background: linear-gradient(135deg, #1e1e2f, #2d2d44);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .login-footer .footer-text,
+body.dark-mode .login-footer small {
+  color: #ccc;
+}
+
+body.dark-mode .login-footer .social-icons a {
+  color: #66b2ff;
+}
+
+body.dark-mode .login-footer .social-icons a:hover {
+  color: #9cd3ff;
+}

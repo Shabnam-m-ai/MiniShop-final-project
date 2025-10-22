@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Checkout — Mini Shop</title>
+  <script src="js/protect.js"></script>
+  <script>
+  const isLoggedIn = localStorage.getItem("loggedIn");
+  if (!isLoggedIn) {
+    window.location.href = "login.html";
+  }
+</script>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gradient">
+
+  <!-- ===== Navbar ===== -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+      <button id="theme-toggle" class="btn btn-sm btn-outline-secondary me-3">🌙 Dark</button>
+      <a class="navbar-brand fw-bold" href="index.html">
+        <i class="fa-solid fa-store text-primary me-1"></i> Mini Shop
+      </a>
+    </div>
+  </nav>
+
+  <!-- ===== Main Section ===== -->
+  <main class="container my-5 fade-in">
+    <section class="bg-white p-5 rounded shadow-lg">
+      <h2 class="mb-4 text-center fw-bold text-primary">
+        <i class="fa-solid fa-credit-card me-2"></i>Checkout
+      </h2>
+
+      <!-- Order Summary -->
+      <div id="orderSummary" class="mb-4">
+        <h5 class="fw-semibold mb-3">Your Order</h5>
+        <ul id="checkoutItems" class="list-group mb-3"></ul>
+        <h5 class="text-end fw-bold">Total: $<span id="totalPrice">0</span></h5>
+      </div>
+
+      <hr>
+
+      <!-- Payment Form -->
+      <h5 class="fw-semibold mb-3">Payment Details</h5>
+      <form id="paymentForm" novalidate>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">Full Name</label>
+            <input type="text" id="fullname" class="form-control" required>
+            <div class="invalid-feedback">Please enter your name.</div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Email</label>
+            <input type="email" id="email" class="form-control" required>
+            <div class="invalid-feedback">Please enter a valid email.</div>
+          </div>
+
+          <div class="col-md-12">
+            <label class="form-label">Address</label>
+            <input type="text" id="address" class="form-control" required>
+            <div class="invalid-feedback">Please enter your address.</div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Card Number</label>
+            <input type="text" id="cardNumber" class="form-control" maxlength="16" placeholder="1234 5678 9012 3456" required>
+            <div class="invalid-feedback">Enter a valid card number (16 digits).</div>
+          </div>
+
+          <div class="col-md-3">
+            <label class="form-label">Expiry Date</label>
+            <input type="text" id="expiry" class="form-control" placeholder="MM/YY" required>
+            <div class="invalid-feedback">Enter expiry (MM/YY).</div>
+          </div>
+
+          <div class="col-md-3">
+            <label class="form-label">CVV</label>
+            <input type="text" id="cvv" class="form-control" maxlength="3" required>
+            <div class="invalid-feedback">Enter 3-digit CVV.</div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-success w-100 mt-4 py-2 fw-semibold">
+          <i class="fa-solid fa-check-circle me-2"></i> Confirm Order
+        </button>
+      </form>
+    </section>
+  </main>
+  <!-- ===== FOLLOW US SECTION ===== -->
+<section class="follow-us-section text-center py-5">
+  <div class="container">
+    <h2 class="fw-bold mb-3 fade-in-on-scroll">
+      <i class="fa-solid fa-heart text-danger me-2"></i>Follow Us
+    </h2>
+    <p class="text-muted mb-4 fade-in-on-scroll">
+      Stay connected with <strong>Mini Shop</strong> and never miss our latest updates, offers, and inspiration!
+    </p>
+
+    <div class="social-icons d-flex justify-content-center gap-4 fade-in-on-scroll">
+      <a href="#" class="social-link facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="social-link twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" class="social-link instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="social-link linkedin"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#" class="social-link github"><i class="fab fa-github"></i></a>
+    </div>
+  </div>
+</section>
+
+  <footer class="footer">
+  <div class="container text-center py-3">
+    <p class="footer-text mb-0">
+      © 2025 <span class="brand">Mini Shop</span> | All Rights Reserved 💙
+    </p>
+  </div>
+</footer>
+
+  <!-- ===== Scripts ===== -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+
+  <script>
+    // Load cart data from localStorage
+    const checkoutItems = document.getElementById("checkoutItems");
+    const totalPriceElement = document.getElementById("totalPrice");
+    let cart = JSON.parse(localStorage.
+    getItem("cart")) || [];
+    let total = 0;
+
+    if (cart.length > 0) {
+      cart.forEach(item => {
+        const li = document.createElement("li");
+        li.className = "list-group-item d-flex justify-content-between align-items-center";
+        li.innerHTML = `
+          <span>${item.name} (x${item.quantity})</span>
+          <strong>$${(item.price * item.quantity).toFixed(2)}</strong>
+        `;
+        checkoutItems.appendChild(li);
+        total += item.price * item.quantity;
+      });
+    } else {
+      checkoutItems.innerHTML = '<li class="list-group-item text-center text-muted">Your cart is empty.</li>';
+    }
+
+    totalPriceElement.textContent = total.toFixed(2);
+
+    // Payment validation
+    const form = document.getElementById("paymentForm");
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        form.classList.add("was-validated");
+        return;
+      }
+
+      // Simulate successful payment
+      alert("✅ Payment successful! Thank you for shopping with Mini Shop.");
+      localStorage.removeItem("cart");
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>

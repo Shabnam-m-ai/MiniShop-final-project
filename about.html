@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About Us — Mini Shop</title>
+  <script src="js/protect.js"></script>
+  <script>
+  const isLoggedIn = localStorage.getItem("loggedIn");
+  if (!isLoggedIn) {
+    window.location.href = "login.html";
+  }
+</script>
+
+  <!-- Fonts & Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-gradient-about">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container d-flex align-items-center justify-content-between">
+      <!-- Dark Mode Button -->
+      <button id="theme-toggle" class="btn btn-sm btn-outline-secondary me-2 rounded-pill">🌙</button>
+
+      <!-- Brand -->
+      <a class="navbar-brand fw-bold text-primary" href="index.html">
+        <i class="fa-solid fa-store"></i> Mini Shop
+      </a>
+
+      <!-- Toggler -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Menu -->
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.html" id="logoutBtn">Logout</a></li>
+          <li class="nav-item">
+            <a class="nav-link position-relative" href="cart.html">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span id="cart-count" class="badge bg-danger rounded-circle position-absolute top-0 start-100 translate-middle">0</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container my-5 fade-in">
+    <section class="bg-white p-5 rounded shadow-lg">
+      <h2 class="mb-4 text-center text-primary fw-bold">Who We Are</h2>
+      <p class="lead text-center">At <strong>Mini Shop</strong>, we believe shopping should be simple, fun, and reliable.</p>
+      <p class="text-muted text-center">
+        Founded in <strong>2025</strong>, Mini Shop started as a small dream of young innovators who wanted to bring style, technology, and convenience together in one place.
+        Our mission is to make online shopping simple, enjoyable, and trustworthy for everyone.
+      </p>
+      <p class="text-muted text-center">
+        Every product in our store is carefully selected to reflect <strong>quality, affordability, and modern design</strong>.
+        We take pride in fast delivery, secure payment, and excellent customer service — because we know that trust is the heart of every great shopping experience.
+      </p>
+      <p class="text-muted text-center mb-4">
+        Whether you’re buying your first gadget or finding the perfect gift for someone special,
+        <strong>Mini Shop</strong> is here to make it easier, faster, and more delightful — wherever you are 🌍
+      </p>
+
+      <div class="text-center my-4">
+        <img src="https://picsum.photos/700/300?random=5" alt="Our Team" class="img-fluid rounded shadow-sm">
+      </div>
+
+      <blockquote class="blockquote text-center mt-4">
+        <p class="mb-3 fs-5 fst-italic text-secondary">“Design is not just what it looks like and feels like. Design is how it works.”</p>
+        <footer class="blockquote-footer text-end">Steve Jobs</footer>
+      </blockquote>
+
+      <div class="text-center mt-4">
+        <h5 class="fw-bold text-info">Mini Shop — Small name, big vision 💫</h5>
+      </div>
+    </section>
+  </main>
+
+<!-- ===== FOLLOW US SECTION ===== -->
+<section class="follow-us-section text-center py-5">
+  <div class="container">
+    <h2 class="fw-bold mb-3 fade-in-on-scroll">
+      <i class="fa-solid fa-heart text-danger me-2"></i>Follow Us
+    </h2>
+    <p class="text-muted mb-4 fade-in-on-scroll">
+      Stay connected with <strong>Mini Shop</strong> and never miss our latest updates, offers, and inspiration!
+    </p>
+
+    <div class="social-icons d-flex justify-content-center gap-4 fade-in-on-scroll">
+      <a href="#" class="social-link facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="social-link twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" class="social-link instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="social-link linkedin"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#" class="social-link github"><i class="fab fa-github"></i></a>
+    </div>
+  </div>
+</section>
+  <footer class="footer">
+  <div class="container text-center py-3">
+    <p class="footer-text mb-0">
+      © 2025 <span class="brand">Mini Shop</span> | All Rights Reserved 💙
+    </p>
+  </div>
+</footer>
+
+  <!-- Scripts -->
+  <script>
+    // 🔒 Check Login
+    const loggedIn = localStorage.getItem("loggedIn");
+    if (!loggedIn) {
+      window.location.href = "login.html";
+    }
+
+    // 🕓 Footer Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

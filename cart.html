@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Shopping Cart — Mini Shop</title>
+  <script src="js/protect.js"></script>
+  <script>
+  const isLoggedIn = localStorage.getItem("loggedIn");
+  if (!isLoggedIn) {
+    window.location.href = "login.html";
+  }
+</script>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-light">
+  <!-- ===== Navbar ===== -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+      <!-- Dark Mode Toggle -->
+      <button id="theme-toggle" class="btn btn-sm btn-outline-light me-3">🌙 Dark</button>
+      
+      <!-- Logo -->
+      <a class="navbar-brand fw-bold" href="index.html">
+        <i class="fa-solid fa-store primary-color"></i> Mini Shop
+      </a>
+
+      <!-- Menu -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+          <li class="nav-item position-relative">
+            <a class="nav-link" href="cart.html">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span id="cart-count" class="badge bg-danger rounded-circle position-absolute top-0 start-100 translate-middle">0</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== Main Section ===== -->
+  <main class="container my-5 fade-in">
+    <section class="bg-white p-4 rounded shadow-sm">
+      <h2 class="mb-4 text-center">🛒 Shopping Cart</h2>
+
+      <!-- Cart Items -->
+      <div id="cartItems"></div>
+      <hr>
+
+      <!-- Checkout Form -->
+      <form id="checkoutForm">
+        <div class="mb-3">
+          <label class="form-label">Full Name</label>
+          <input type="text" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Address</label>
+          <input type="text" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-success w-100 py-2">Place Order</button>
+      </form>
+    </section>
+  </main>
+  <!-- ===== FOLLOW US SECTION ===== -->
+<section class="follow-us-section text-center py-5">
+  <div class="container">
+    <h2 class="fw-bold mb-3 fade-in-on-scroll">
+      <i class="fa-solid fa-heart text-danger me-2"></i>Follow Us
+    </h2>
+    <p class="text-muted mb-4 fade-in-on-scroll">
+      Stay connected with <strong>Mini Shop</strong> and never miss our latest updates, offers, and inspiration!
+    </p>
+
+    <div class="social-icons d-flex justify-content-center gap-4 fade-in-on-scroll">
+      <a href="#" class="social-link facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="social-link twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" class="social-link instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="social-link linkedin"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#" class="social-link github"><i class="fab fa-github"></i></a>
+    </div>
+  </div>
+</section>
+
+ <footer class="footer">
+  <div class="container text-center py-3">
+    <p class="footer-text mb-0">
+      © 2025 <span class="brand">Mini Shop</span> | All Rights Reserved 💙
+    </p>
+  </div>
+</footer>
+
+  <!-- ===== JS ===== -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
